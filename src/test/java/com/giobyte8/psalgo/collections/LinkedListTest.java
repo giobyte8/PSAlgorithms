@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LinkedListTest {
 
@@ -65,7 +65,7 @@ class LinkedListTest {
             digits.add(i);
         }
 
-        ArrayPStack<Integer> digitsStack = new ArrayPStack<>();
+        Stack<Integer> digitsStack = new ArrayStack<>();
         for (int i = 9; i >= 0; i--) {
             digitsStack.push(i);
         }
