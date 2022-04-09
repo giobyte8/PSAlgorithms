@@ -1,6 +1,6 @@
 package com.giobyte8.psalgo.collections;
 
-public interface List<T> {
+public interface List<T> extends Iterable<T> {
 
     void add(T element);
 
@@ -9,4 +9,10 @@ public interface List<T> {
     T get(int index);
 
     int size();
+
+    void forEachIdx(ConsumerIdx<T> consumer);
+
+    interface ConsumerIdx<T> {
+        void onItem(T element, int idx);
+    }
 }

@@ -1,6 +1,8 @@
 package com.giobyte8.psalgo.collections;
 
+import java.util.Iterator;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LinkedList<T> implements List<T> {
 
@@ -8,6 +10,7 @@ public class LinkedList<T> implements List<T> {
     private Node<T> tail;
     private int size;
 
+    @Override
     public void add(T element) {
         Node<T> n = new Node<>(element);
 
@@ -21,6 +24,7 @@ public class LinkedList<T> implements List<T> {
         size++;
     }
 
+    @Override
     public void add(int index, T element) {
         if (index < 0 || index > size) throw new IndexOutOfBoundsException();
 
@@ -42,13 +46,50 @@ public class LinkedList<T> implements List<T> {
         size++;
     }
 
+    @Override
     public T get(int index) {
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
         return Objects.requireNonNull(getNodeAt(index)).value;
     }
 
+    @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<>() {
+            Node<T> currNode;
+
+            @Override
+            public boolean hasNext() {
+                if (currNode == null) {
+                    return head != null;
+                }
+
+                return currNode.next != null;
+            }
+
+            @Override
+            public T next() {
+                if (currNode == null) {
+                    currNode = head;
+                } else {
+                    currNode = currNode.next;
+                }
+
+                return currNode.value;
+            }
+        };
+    }
+
+    @Override
+    public void forEachIdx(ConsumerIdx<T> consumer) {
+        AtomicInteger atomicIdx = new AtomicInteger(0);
+        for (T el : this) {
+            consumer.onItem(el, atomicIdx.getAndIncrement());
+        }
     }
 
     private Node<T> getNodeAt(int index) {

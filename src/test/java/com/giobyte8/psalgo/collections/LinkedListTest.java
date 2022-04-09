@@ -2,6 +2,8 @@ package com.giobyte8.psalgo.collections;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LinkedListTest {
@@ -54,5 +56,38 @@ class LinkedListTest {
         assertEquals(3, list.get(3));
         assertEquals(4, list.get(4));
         assertEquals(5, list.get(5));
+    }
+
+    @Test
+    void iterateElements() {
+        List<Integer> digits = new LinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            digits.add(i);
+        }
+
+        ArrayPStack<Integer> digitsStack = new ArrayPStack<>();
+        for (int i = 9; i >= 0; i--) {
+            digitsStack.push(i);
+        }
+
+        for (Integer digit : digits) {
+            assertEquals(digitsStack.pop(), digit);
+        }
+    }
+
+    @Test
+    void forEachWithIdx() {
+        List<Integer> digits = new LinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            digits.add(i);
+        }
+
+        AtomicInteger expectedIdx = new AtomicInteger();
+        digits.forEachIdx((el, idx) -> {
+            assertEquals(expectedIdx.getAndIncrement(), idx);
+
+            // For this list each item should be equals to its idx
+            assertEquals(idx, el);
+        });
     }
 }
