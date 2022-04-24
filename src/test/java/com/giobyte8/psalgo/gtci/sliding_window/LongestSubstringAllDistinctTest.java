@@ -1,5 +1,6 @@
-package com.giobyte8.psalgo.gtci;
+package com.giobyte8.psalgo.gtci.sliding_window;
 
+import com.giobyte8.psalgo.gtci.sliding_window.LongestSubstringAllDistinct;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

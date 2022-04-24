@@ -1,8 +1,8 @@
-package com.giobyte8.psalgo.gtci;
+package com.giobyte8.psalgo.gtci.sliding_window;
 
 import org.junit.jupiter.api.Test;
 
-import static com.giobyte8.psalgo.gtci.LongestSubstringKDistinct.findLongestSubstring;
+import static com.giobyte8.psalgo.gtci.sliding_window.LongestSubstringKDistinct.findLongestSubstring;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LongestSubstringKDistinctTest {

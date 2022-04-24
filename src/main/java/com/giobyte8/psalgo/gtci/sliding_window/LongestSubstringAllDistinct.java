@@ -1,4 +1,4 @@
-package com.giobyte8.psalgo.gtci;
+package com.giobyte8.psalgo.gtci.sliding_window;
 
 import java.util.HashSet;
 import java.util.Set;
