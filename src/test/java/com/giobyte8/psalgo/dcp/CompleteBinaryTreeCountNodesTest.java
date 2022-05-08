@@ -1,6 +1,6 @@
 package com.giobyte8.psalgo.dcp;
 
-import com.giobyte8.psalgo.collections.BTreeNode;
+import com.giobyte8.psalgo.collections.BTree;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,16 +23,16 @@ class CompleteBinaryTreeCountNodesTest {
      */
     @Test
     void countNodes() {
-        BTreeNode<Integer> node1 = new BTreeNode<>(1);
-        BTreeNode<Integer> node2 = new BTreeNode<>(2);
-        BTreeNode<Integer> node3 = new BTreeNode<>(3);
-        BTreeNode<Integer> node4 = new BTreeNode<>(4);
-        BTreeNode<Integer> node5 = new BTreeNode<>(5);
-        BTreeNode<Integer> node6 = new BTreeNode<>(6);
-        BTreeNode<Integer> node7 = new BTreeNode<>(7);
-        BTreeNode<Integer> node8 = new BTreeNode<>(8);
-        BTreeNode<Integer> node9 = new BTreeNode<>(9);
-        BTreeNode<Integer> node10 = new BTreeNode<>(10);
+        BTree.Node<Integer> node1 = new BTree.Node<>(1);
+        BTree.Node<Integer> node2 = new BTree.Node<>(2);
+        BTree.Node<Integer> node3 = new BTree.Node<>(3);
+        BTree.Node<Integer> node4 = new BTree.Node<>(4);
+        BTree.Node<Integer> node5 = new BTree.Node<>(5);
+        BTree.Node<Integer> node6 = new BTree.Node<>(6);
+        BTree.Node<Integer> node7 = new BTree.Node<>(7);
+        BTree.Node<Integer> node8 = new BTree.Node<>(8);
+        BTree.Node<Integer> node9 = new BTree.Node<>(9);
+        BTree.Node<Integer> node10 = new BTree.Node<>(10);
 
         node4.left = node8;
         node4.right = node9;

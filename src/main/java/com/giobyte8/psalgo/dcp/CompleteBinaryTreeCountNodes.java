@@ -1,6 +1,6 @@
 package com.giobyte8.psalgo.dcp;
 
-import com.giobyte8.psalgo.collections.BTreeNode;
+import com.giobyte8.psalgo.collections.BTree;
 
 /**
  * Given a complete binary tree, count the number of nodes in faster
@@ -18,7 +18,7 @@ public class CompleteBinaryTreeCountNodes {
         boolean lastLevelLastNodeFound = false;
     }
 
-    public int countNodes(BTreeNode<Integer> root) {
+    public int countNodes(BTree.Node<Integer> root) {
         CountStatus countStatus = new CountStatus();
         countLeaves(root, -1, countStatus);
 
@@ -30,7 +30,7 @@ public class CompleteBinaryTreeCountNodes {
         return nodesCount;
     }
 
-    private void countLeaves(BTreeNode<Integer> root,
+    private void countLeaves(BTree.Node<Integer> root,
                              int previousLevel,
                              CountStatus countStatus) {
         if (countStatus.lastLevelLastNodeFound) return;
@@ -61,7 +61,7 @@ public class CompleteBinaryTreeCountNodes {
         }
     }
 
-    public int countNodesOfficial(BTreeNode<Integer> root) {
+    public int countNodesOfficial(BTree.Node<Integer> root) {
         if (root == null) return 0;
 
         int leftHeight = leftHeight(root);
@@ -76,7 +76,7 @@ public class CompleteBinaryTreeCountNodes {
         }
     }
 
-    private int leftHeight(BTreeNode<Integer> root) {
+    private int leftHeight(BTree.Node<Integer> root) {
         int height = 0;
 
         while (root.left != null) {
@@ -87,7 +87,7 @@ public class CompleteBinaryTreeCountNodes {
         return height;
     }
 
-    private int rightHeight(BTreeNode<Integer> root) {
+    private int rightHeight(BTree.Node<Integer> root) {
         int height = 0;
 
         while (root.right != null) {

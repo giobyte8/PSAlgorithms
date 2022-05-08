@@ -1,6 +1,6 @@
 package com.giobyte8.psalgo.encora;
 
-import com.giobyte8.psalgo.collections.BTreeNode;
+import com.giobyte8.psalgo.collections.BTree;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -24,7 +24,7 @@ import java.util.Map;
  */
 public class BTreeToDLLists {
 
-    public void toDLLists(BTreeNode<Integer> root) {
+    public void toDLLists(BTree.Node<Integer> root) {
         int treeHeight = root.height();
         Map<Integer, LinkedList<Integer>> lists = new HashMap<>(treeHeight);
 
@@ -41,7 +41,7 @@ public class BTreeToDLLists {
         ));
     }
 
-    private void toDLLists(BTreeNode<Integer> node,
+    private void toDLLists(BTree.Node<Integer> node,
                            int level,
                            Map<Integer, LinkedList<Integer>> listsMap) {
         LinkedList<Integer> levelList = listsMap.get(level);
@@ -57,23 +57,22 @@ public class BTreeToDLLists {
         }
     }
 
-    @SuppressWarnings("DuplicatedCode")
     public static void main(String[] args) {
-        BTreeNode<Integer> node1 = new BTreeNode<>(1);
-        BTreeNode<Integer> node2 = new BTreeNode<>(2);
-        BTreeNode<Integer> node3 = new BTreeNode<>(3);
-        BTreeNode<Integer> node4 = new BTreeNode<>(4);
-        BTreeNode<Integer> node5 = new BTreeNode<>(5);
-        BTreeNode<Integer> node6 = new BTreeNode<>(6);
-        BTreeNode<Integer> node7 = new BTreeNode<>(7);
-        BTreeNode<Integer> node8 = new BTreeNode<>(8);
-        BTreeNode<Integer> node9 = new BTreeNode<>(9);
-        BTreeNode<Integer> node10 = new BTreeNode<>(10);
-        BTreeNode<Integer> node11 = new BTreeNode<>(11);
-        BTreeNode<Integer> node12 = new BTreeNode<>(12);
-        BTreeNode<Integer> node13 = new BTreeNode<>(13);
-        BTreeNode<Integer> node14 = new BTreeNode<>(14);
-        BTreeNode<Integer> node15 = new BTreeNode<>(15);
+        BTree.Node<Integer> node1 = new BTree.Node<>(1);
+        BTree.Node<Integer> node2 = new BTree.Node<>(2);
+        BTree.Node<Integer> node3 = new BTree.Node<>(3);
+        BTree.Node<Integer> node4 = new BTree.Node<>(4);
+        BTree.Node<Integer> node5 = new BTree.Node<>(5);
+        BTree.Node<Integer> node6 = new BTree.Node<>(6);
+        BTree.Node<Integer> node7 = new BTree.Node<>(7);
+        BTree.Node<Integer> node8 = new BTree.Node<>(8);
+        BTree.Node<Integer> node9 = new BTree.Node<>(9);
+        BTree.Node<Integer> node10 = new BTree.Node<>(10);
+        BTree.Node<Integer> node11 = new BTree.Node<>(11);
+        BTree.Node<Integer> node12 = new BTree.Node<>(12);
+        BTree.Node<Integer> node13 = new BTree.Node<>(13);
+        BTree.Node<Integer> node14 = new BTree.Node<>(14);
+        BTree.Node<Integer> node15 = new BTree.Node<>(15);
 
         node1.left = node2;
         node1.right = node3;
@@ -96,8 +95,6 @@ public class BTreeToDLLists {
         node7.left = node14;
         node7.right = node15;
 
-        node1.print();
-        System.out.println();
         BTreeToDLLists toDLListsConverter = new BTreeToDLLists();
         toDLListsConverter.toDLLists(node1);
     }
