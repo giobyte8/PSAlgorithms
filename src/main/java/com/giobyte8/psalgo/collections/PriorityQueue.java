@@ -27,4 +27,14 @@ public class PriorityQueue<T> implements Queue<T> {
     public T peek() {
         return heap.peek();
     }
+
+    @Override
+    public int size() {
+        return heap.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size() == 0;
+    }
 }

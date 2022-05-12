@@ -7,4 +7,8 @@ public interface Queue<T> {
     T poll();
 
     T peek();
+
+    int size();
+
+    boolean isEmpty();
 }
