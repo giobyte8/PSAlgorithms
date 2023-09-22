@@ -1,5 +1,6 @@
 package com.giobyte8.psalgo.collections;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -9,6 +10,13 @@ public class LinkedList<T> implements List<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size;
+
+    public static <U> LinkedList<U> from(U[] items) {
+        LinkedList<U> list = new LinkedList<>();
+        Arrays.stream(items).forEach(list::add);
+
+        return list;
+    }
 
     @Override
     public void add(T element) {
@@ -92,6 +100,10 @@ public class LinkedList<T> implements List<T> {
         }
     }
 
+    public Node<T> getHead() {
+        return head;
+    }
+
     private Node<T> getNodeAt(int index) {
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
 
@@ -112,11 +124,11 @@ public class LinkedList<T> implements List<T> {
         return null;
     }
 
-    static class Node<T> {
-        Node<T> next;
-        T value;
+    public static class Node<T> {
+        public Node<T> next;
+        public T value;
 
-        Node(T value) {
+        public Node(T value) {
             this.value = value;
         }
     }
