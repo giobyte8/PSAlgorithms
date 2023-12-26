@@ -1,5 +1,6 @@
 package com.giobyte8.psalgo.collections;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class PriorityQueue<T> implements Queue<T> {
@@ -16,6 +17,10 @@ public class PriorityQueue<T> implements Queue<T> {
     @Override
     public void add(T element) {
         heap.add(element);
+    }
+
+    public void addAll(T[] elements) {
+        Arrays.stream(elements).forEach(this::add);
     }
 
     @Override

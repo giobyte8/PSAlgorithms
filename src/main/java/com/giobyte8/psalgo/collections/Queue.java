@@ -4,6 +4,8 @@ public interface Queue<T> {
 
     void add(T element);
 
+    void addAll(T[] elements);
+
     T poll();
 
     T peek();
