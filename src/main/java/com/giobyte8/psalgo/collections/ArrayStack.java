@@ -42,6 +42,15 @@ public class ArrayStack<T> implements Stack<T> {
     }
 
     @Override
+    public T peek() {
+        if (top < 0) {
+            return null;
+        }
+
+        return stackElements[top];
+    }
+
+    @Override
     public int size() {
         return top + 1;
     }
