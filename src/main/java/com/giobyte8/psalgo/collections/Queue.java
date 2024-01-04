@@ -1,10 +1,12 @@
 package com.giobyte8.psalgo.collections;
 
+import java.util.Collection;
+
 public interface Queue<T> {
 
     void add(T element);
 
-    void addAll(T[] elements);
+    void addAll(Collection<? extends T> elements);
 
     T poll();
 
